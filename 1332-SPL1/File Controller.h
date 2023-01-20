@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "Register and Login.h";
+#include "Regular Activities.h";
 
 using namespace std;
 
@@ -13,6 +14,7 @@ void fileController(){
         return;
     }
 
+    activities();
 
     return;
 }
