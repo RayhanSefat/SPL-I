@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "Take Basic Financial Information.h";
 
 using namespace std;
 
@@ -70,7 +71,10 @@ bool initialEntrance(){
 
         signUp();
 
-        cout << "Congratulations! You have been registered successfully!" << endl;
+        cout << "Congratulations! You have been registered successfully!" << endl << endl;
+
+
+        takeFinalcialInformation();
 
         return true;
     }
