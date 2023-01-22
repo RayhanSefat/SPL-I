@@ -15,3 +15,8 @@ void printCashBalance(){
     cout << "Your current cash balance: " << cashBalance << endl;
     return;
 }
+
+void printCreditCardDebit(){
+    cout << "Your current credit card credit balance: " << creditCardDebit << endl;
+    return;
+}

@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "Balance Activities.h";
+#include "Spending Activities.h";
 
 using namespace std;
 
@@ -19,6 +19,7 @@ bool repeatationChecker()
 
 void activities(){
     takeInputFromTheBalanceInformationSheet();
+    readSpendings();
 
     int repeatOperation = false;
     while(true){
@@ -32,6 +33,7 @@ void activities(){
         cout << "What do you want to do?" << endl;
         cout << "\t1. Add your balance" << endl;
         cout << "\t2. Transfer balance" << endl;
+        cout << "\t3. Spend Money" << endl;
 
         cout << "Your response: ";
         int operationType;
@@ -39,7 +41,9 @@ void activities(){
 
         if(operationType == 1) addBalance();
         else if(operationType == 2) transferBalance();
+        else if(operationType == 3) spendMoney();
     }
 
     updateTheBalanceInformationSheet();
+    updateSpendings();
 }

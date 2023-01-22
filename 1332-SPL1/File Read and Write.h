@@ -46,3 +46,34 @@ void updateTheBalanceInformationSheet(){
 
     return;
 }
+
+
+
+float needSpending;
+float demandSpending;
+float savedAmount;
+
+void readSpendings(){
+    fptr3.open("Spendings.txt");
+
+    fptr3 >> needSpending;
+    fptr3 >> demandSpending;
+    fptr3 >> savedAmount;
+
+    fptr3.close();
+
+    return;
+}
+
+
+void updateSpendings(){
+    fptr3.open("Spendings.txt");
+
+    fptr3 << needSpending;
+    fptr3 << demandSpending;
+    fptr3 << savedAmount;
+
+    fptr3.close();
+
+    return;
+}

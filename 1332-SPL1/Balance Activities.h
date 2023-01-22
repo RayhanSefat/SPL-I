@@ -85,6 +85,7 @@ void transferBalance(){
 
         cashBalance -= amount;
         savingAccountBalance += amount;
+        savedAmount += amount;
 
         printCashBalance();
         printSavingAccountBalance();
@@ -98,6 +99,7 @@ void transferBalance(){
 
         runningAccountBalance -= amount;
         savingAccountBalance += amount;
+        savedAmount += amount;
 
         printRunningAccountBalance();
         printSavingAccountBalance();
