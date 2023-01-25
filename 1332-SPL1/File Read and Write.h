@@ -69,9 +69,9 @@ void readSpendings(){
 void updateSpendings(){
     fptr3.open("Spendings.txt");
 
-    fptr3 << needSpending;
-    fptr3 << demandSpending;
-    fptr3 << savedAmount;
+    fptr3 << needSpending << endl;
+    fptr3 << demandSpending << endl;
+    fptr3 << savedAmount << endl;
 
     fptr3.close();
 

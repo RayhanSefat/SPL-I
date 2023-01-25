@@ -71,7 +71,7 @@ void spendForNeed(){
 
     if(savingsPrevent(spendingSource)) return;
 
-    int amount;
+    float amount;
     amount = getAmount();
 
     if(spendingSource == 4){
@@ -81,6 +81,7 @@ void spendForNeed(){
     }
 
     performSpending(spendingSource, amount);
+    needSpending += amount;
 
     return;
 }
@@ -100,6 +101,7 @@ void spendForDemand(){
     amount = getAmount();
 
     performSpending(spendingSource, amount);
+    demandSpending += amount;
 
     return;
 }

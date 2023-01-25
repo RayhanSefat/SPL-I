@@ -17,6 +17,14 @@ bool repeatationChecker()
     return false;
 }
 
+void printTerminatinatingMessage(){
+    system("cls");
+
+    cout << "Your data has been updated. Thank you. " << endl;
+
+    return;
+}
+
 void activities(){
     takeInputFromTheBalanceInformationSheet();
     readSpendings();
@@ -25,7 +33,12 @@ void activities(){
     while(true){
         // ask the user if he/she wants to repeat the operation
         if(repeatOperation==true && repeatationChecker()==false){
+            printTerminatinatingMessage();
             break;
+        }
+
+        if(repeatOperation == true){
+            system("cls");
         }
 
         repeatOperation = true;
