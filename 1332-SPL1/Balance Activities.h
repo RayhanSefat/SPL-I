@@ -26,6 +26,7 @@ void addBalance(){
     balanceType = getBalanceType();
 
     float amount = getAmount();
+    tempEarnig += amount;
 
     if(balanceType == 1){
         cashBalance += amount;

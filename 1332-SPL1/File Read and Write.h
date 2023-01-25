@@ -77,3 +77,42 @@ void updateSpendings(){
 
     return;
 }
+
+
+
+float monthwiseEarning[12];
+float monthwiseNeedSpending[12];
+float monthwiseDemandSpending[12];
+
+
+float tempEarnig = 0;
+float tempNeedSpending = 0;
+float tempDemandSpending = 0;
+
+void readMonthwiseAccounts(){
+    fptr3.open("Monthwise Accounts.txt");
+
+    for(int i=0; i<12; i++){
+        fptr3 >> monthwiseEarning[i];
+        fptr3 >> monthwiseNeedSpending[i];
+        fptr3 >> monthwiseDemandSpending[i];
+    }
+
+    fptr3.close();
+}
+
+void updateMonthwiseAccounts(int monthNumber){
+    fptr3.open("Monthwise Accounts.txt");
+
+    monthwiseEarning[monthNumber - 1] += tempEarnig;
+    monthwiseNeedSpending[monthNumber - 1] += tempNeedSpending;
+    monthwiseDemandSpending[monthNumber - 1] += tempDemandSpending;
+
+    for(int i=0; i<12; i++){
+        fptr3 << monthwiseEarning[i] << endl;
+        fptr3 << monthwiseNeedSpending[i] << endl;
+        fptr3 << monthwiseDemandSpending[i] << endl;
+    }
+
+    fptr3.close();
+}

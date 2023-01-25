@@ -41,11 +41,11 @@ bool savingsPrevent(int spendingSource){
     return false;
 }
 
-void performSpending(int spendingSource, float amount){
+bool performSpending(int spendingSource, float amount){
     if(spendingSource == 1){
         if(checkBalanceIsEnough(cashBalance, amount) == false){
             cout << "Sorry! You do not have enough balance." << endl;
-            return;
+            return false;
         }
 
         cashBalance += amount;
@@ -55,14 +55,14 @@ void performSpending(int spendingSource, float amount){
     if(spendingSource == 2){
         if(checkBalanceIsEnough(runningAccountBalance, amount) == false){
             cout << "Sorry! You do not have enough balance." << endl;
-            return;
+            return false;
         }
 
         runningAccountBalance += amount;
         printRunningAccountBalance();
     }
 
-    return;
+    return true;
 }
 
 void spendForNeed(){
@@ -80,8 +80,10 @@ void spendForNeed(){
         return;
     }
 
-    performSpending(spendingSource, amount);
-    needSpending += amount;
+    if(performSpending(spendingSource, amount) == true){
+        needSpending += amount;
+        tempNeedSpending += amount;
+    }
 
     return;
 }
@@ -100,8 +102,10 @@ void spendForDemand(){
     float amount;
     amount = getAmount();
 
-    performSpending(spendingSource, amount);
-    demandSpending += amount;
+    if(performSpending(spendingSource, amount) == true){
+        demandSpending += amount;
+        tempDemandSpending += amount;
+    }
 
     return;
 }

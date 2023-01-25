@@ -25,9 +25,33 @@ void printTerminatinatingMessage(){
     return;
 }
 
+int getMonthNumber(){
+    cout << "Enter month: " << endl;
+    cout << "\t1. January" << endl;
+    cout << "\t2. February" << endl;
+    cout << "\t3. March" << endl;
+    cout << "\t4. April" << endl;
+    cout << "\t5. May" << endl;
+    cout << "\t6. June" << endl;
+    cout << "\t7. July" << endl;
+    cout << "\t8. August" << endl;
+    cout << "\t9. September" << endl;
+    cout << "\t10. Octobet" << endl;
+    cout << "\t11. November" << endl;
+    cout << "\t12. December" << endl;
+
+    cout << "Your response: ";
+    int monthNumber;
+    cin >> monthNumber;
+    return monthNumber;
+}
+
 void activities(){
     takeInputFromTheBalanceInformationSheet();
     readSpendings();
+    readMonthwiseAccounts();
+
+    int monthNumber = getMonthNumber();
 
     int repeatOperation = false;
     while(true){
@@ -59,4 +83,5 @@ void activities(){
 
     updateTheBalanceInformationSheet();
     updateSpendings();
+    updateMonthwiseAccounts(monthNumber);
 }
