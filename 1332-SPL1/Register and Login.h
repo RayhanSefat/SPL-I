@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
+#include "Hashing.h"
 
 using namespace std;
 
 fstream fptr1;
 fstream fptr2;
-
-string actualPassword;
+fstream fptr4;
 
 void takeFinalcialInformation(){
     fptr2.open("Balance Information.txt");
@@ -55,19 +55,20 @@ void takeFinalcialInformation(){
 }
 
 void signUp(){
-    fptr1 << "Yes" << endl;
+    fptr4.open("Basic Information.txt");
+    fptr4 << "Yes" << endl;
 
     cout << "WELCOME! You have to register first!" << endl;
 
     cout << "Enter your first name: ";
     string firstName;
     cin >> firstName;
-    fptr1 << firstName << endl;
+    fptr4 << firstName << endl;
 
     cout << "Enter your last name: ";
     string lastName;
     cin >> lastName;
-    fptr1 << lastName << endl;
+    fptr4 << lastName << endl;
 
     string password;
     int minimumLenthOfPassword = 8;
@@ -76,12 +77,18 @@ void signUp(){
         cin >> password;
 
         if(password.size() >= minimumLenthOfPassword){
-            fptr1 << password << endl;
+            pair<long long int, long long int> hashedValuesOfPassword = hashPassword(password);
+
+            fptr4 << hashedValuesOfPassword.first << endl;
+            fptr4 << hashedValuesOfPassword.second << endl;
+
             break;
         }
 
         cout << "Password is too short. Please try again." << endl;
     }while(true);
+
+    fptr4.close();
 }
 
 bool login(){
@@ -97,14 +104,21 @@ bool login(){
 
     cout << "Please enter the password: ";
 
-    // reading the actual password for the first time only and to keep it stored it has been declared globally
-    if(fptr1.good()){
-        getline(fptr1, actualPassword);
-    }
     string givenPassword;
     cin >> givenPassword;
 
-    return actualPassword == givenPassword;
+    long long int hashValueOfActualPassword1;
+    long long int hashValueOfActualPassword2;
+
+    if(fptr1.good()){
+        fptr1 >> hashValueOfActualPassword1;
+        fptr1 >> hashValueOfActualPassword2;
+    }
+
+    pair<long long int, long long int> hashedPairOfGivenPassword = {hashValueOfActualPassword1, hashValueOfActualPassword2};
+    pair<long long int, long long int> hashedPairOfActualPassword = hashPassword(givenPassword);
+
+    return hashedPairOfGivenPassword.first == hashedPairOfActualPassword.first && hashedPairOfGivenPassword.second == hashedPairOfActualPassword.second;
 }
 
 bool initialEntrance(){
