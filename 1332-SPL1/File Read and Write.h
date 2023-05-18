@@ -108,6 +108,10 @@ void updateMonthwiseAccounts(int monthNumber){
     monthwiseNeedSpending[monthNumber - 1] += tempNeedSpending;
     monthwiseDemandSpending[monthNumber - 1] += tempDemandSpending;
 
+    tempEarnig = 0.0;
+    tempNeedSpending = 0.0;
+    tempDemandSpending = 0.0;
+
     for(int i=0; i<12; i++){
         fptr3 << monthwiseEarning[i] << endl;
         fptr3 << monthwiseNeedSpending[i] << endl;
