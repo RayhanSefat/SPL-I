@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "Monthwise.h";
+#include "Regression.h";
 
 using namespace std;
 
@@ -66,7 +66,7 @@ void activities(){
         cout << "\t1. Add your balance" << endl;
         cout << "\t2. Transfer balance" << endl;
         cout << "\t3. Spend Money" << endl;
-        cout << "\t4. Show monthwise activity" << endl;
+        cout << "\t4. Show activity analysis" << endl;
 
         cout << "Your response: ";
         int operationType;
@@ -75,7 +75,10 @@ void activities(){
         if(operationType == 1) addBalance();
         else if(operationType == 2) transferBalance();
         else if(operationType == 3) spendMoney();
-        else if(operationType == 4) printMonthwiseDetails();
+        else if(operationType == 4){
+            printMonthwiseDetails();
+            buildRegressionMoidel();
+        }
 
         updateTheBalanceInformationSheet();
         updateSpendings();
