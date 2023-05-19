@@ -1,6 +1,22 @@
 #include<bits/stdc++.h>
 #include "Monthwise.h";
 
+int getStartMonth(){
+    cout << "Enter the starting month." << endl;
+
+    int monthNumber = getMonthNumber();
+
+    return monthNumber;
+}
+
+int getEndMonth(){
+    cout << "Enter the ending month." << endl;
+
+    int monthNumber = getMonthNumber();
+
+    return monthNumber;
+}
+
 const int N = 12;
 float x[N], y[N];
 
@@ -13,10 +29,10 @@ void setVariableValues(){
     return;
 }
 
-float sumCalculate(int xPow, int yPow){
+float sumCalculate(int xPow, int yPow, int startingMonth, int endingMonth){
     float sum = 0.0;
 
-    for(int i=0; i<N; i++){
+    for(int i=startingMonth - 1; i<endingMonth; i++){
         float currentValue = 1.0;
 
         for(int j=0; j<xPow; j++){
@@ -36,7 +52,7 @@ float sumCalculate(int xPow, int yPow){
 int const degreeOfEqn = 5;
 float A[degreeOfEqn][degreeOfEqn], B[degreeOfEqn][1];
 
-void buildMatrixSystem(){
+void buildMatrixSystem(int startingMonth, int endingMonth){
     for(int i=0; i<degreeOfEqn; i++){
         for(int j=0; j<degreeOfEqn; j++){
             if(!i && !j){
@@ -44,12 +60,12 @@ void buildMatrixSystem(){
                 continue;
             }
 
-            A[i][j] = sumCalculate(i+j, 0);
+            A[i][j] = sumCalculate(i+j, 0, startingMonth, endingMonth);
         }
     }
 
     for(int i=0; i<degreeOfEqn; i++){
-        B[i][0] = sumCalculate(i, 1);
+        B[i][0] = sumCalculate(i, 1, startingMonth, endingMonth);
     }
 
     return;
@@ -109,7 +125,9 @@ void printFinalEquation(){
 void buildRegressionMoidel(){
     setVariableValues();
 
-    buildMatrixSystem();
+    int staringMonth = getStartMonth();
+    int endingMonth = getEndMonth();
+    buildMatrixSystem(staringMonth, endingMonth);
 
     diagojnaliseMatrixSystem();
 

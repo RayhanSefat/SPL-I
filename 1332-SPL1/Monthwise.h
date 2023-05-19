@@ -18,8 +18,32 @@ void setMonthName(){
     monthName[11] = "December";
 }
 
+int getMonthNumber(){
+    cout << "\nEnter month: " << endl;
+    for(int i=0; i<12; i++){
+        cout << i+1 << ". " << monthName[i] << endl;
+    }
+
+    cout << endl;
+
+    cout << "Your response: ";
+    int monthNumber;
+    cin >> monthNumber;
+    return monthNumber;
+}
+
+void printAnnualEarningAndSaving(float totalIncomeOfTheYear, float totalSavingsOfTheYear){
+    cout << "Total earning of the year: " << totalIncomeOfTheYear << endl;
+    cout << "Total savings of the year: " << totalSavingsOfTheYear << endl;
+
+    return;
+}
+
 void printMonthwiseDetails(){
     cout << "Monthwise details have been shown bellow:" << endl << endl;
+
+    float totalIncomeOfTheYear = 0.0;
+    float totalSavingsOfTheYear = 0.0;
 
     for(int i=0; i<12; i++){
         float savingsOfTheMonth = monthwiseEarning[i] - (monthwiseNeedSpending[i] + monthwiseDemandSpending[i]);
@@ -35,7 +59,17 @@ void printMonthwiseDetails(){
         }
 
         cout << endl;
+
+        totalIncomeOfTheYear += monthwiseEarning[i];
+        totalSavingsOfTheYear += savingsOfTheMonth;
     }
+
+    printCashBalance();
+    printRunningAccountBalance();
+    printSavingAccountBalance();
+    printSavingAccountBalance();
+
+    printAnnualEarningAndSaving(totalIncomeOfTheYear, totalSavingsOfTheYear);
 
     return;
 }

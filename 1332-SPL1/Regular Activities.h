@@ -13,7 +13,8 @@ bool repeatationChecker()
     int repeatingCommand;
     cin >> repeatingCommand;
 
-    if(repeatingCommand == 1) return true;
+    if(repeatingCommand == 1)
+        return true;
     return false;
 }
 
@@ -23,20 +24,6 @@ void printTerminatinatingMessage(){
     cout << "Your data has been updated. Thank you. " << endl;
 
     return;
-}
-
-int getMonthNumber(){
-    cout << "\nEnter month: " << endl;
-    for(int i=0; i<12; i++){
-        cout << i+1 << ". " << monthName[i] << endl;
-    }
-
-    cout << endl;
-
-    cout << "Your response: ";
-    int monthNumber;
-    cin >> monthNumber;
-    return monthNumber;
 }
 
 void activities(){
@@ -66,7 +53,8 @@ void activities(){
         cout << "\t1. Add your balance" << endl;
         cout << "\t2. Transfer balance" << endl;
         cout << "\t3. Spend Money" << endl;
-        cout << "\t4. Show activity analysis" << endl;
+        cout << "\t4. Show monthwised activity analysis" << endl;
+        cout << "\t5. Show regression analysis" << endl;
 
         cout << "Your response: ";
         int operationType;
@@ -75,10 +63,8 @@ void activities(){
         if(operationType == 1) addBalance();
         else if(operationType == 2) transferBalance();
         else if(operationType == 3) spendMoney();
-        else if(operationType == 4){
-            printMonthwiseDetails();
-            buildRegressionMoidel();
-        }
+        else if(operationType == 4) printMonthwiseDetails();
+        else if(operationType == 5) buildRegressionMoidel();
 
         updateTheBalanceInformationSheet();
         updateSpendings();
