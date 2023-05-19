@@ -50,7 +50,7 @@ float sumCalculate(int xPow, int yPow, int startingMonth, int endingMonth){
 }
 
 int const degreeOfEqn = 5;
-float A[degreeOfEqn][degreeOfEqn], B[degreeOfEqn][1];
+double A[degreeOfEqn][degreeOfEqn], B[degreeOfEqn][1];
 
 void buildMatrixSystem(int startingMonth, int endingMonth){
     for(int i=0; i<degreeOfEqn; i++){
@@ -72,8 +72,8 @@ void buildMatrixSystem(int startingMonth, int endingMonth){
 }
 
 void substractRow(int row1, int row2){
-    float value1 = A[row1][row2];
-    float value2 = A[row2][row2];
+    double value1 = A[row1][row2];
+    double value2 = A[row2][row2];
 
     for(int i=0; i<degreeOfEqn; i++){
         A[row1][i] = value2 * A[row1][i] - value1 * A[row2][i];
