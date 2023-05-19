@@ -56,7 +56,7 @@ void buildMatrixSystem(int startingMonth, int endingMonth){
     for(int i=0; i<degreeOfEqn; i++){
         for(int j=0; j<degreeOfEqn; j++){
             if(!i && !j){
-                A[i][j] = N;
+                A[i][j] = endingMonth - startingMonth + 1;
                 continue;
             }
 
@@ -122,14 +122,21 @@ void printFinalEquation(){
     return;
 }
 
-void buildRegressionMoidel(){
+void calculateRegressionCoefficients(int startingMonth, int endingMonth){
     setVariableValues();
 
-    int staringMonth = getStartMonth();
-    int endingMonth = getEndMonth();
-    buildMatrixSystem(staringMonth, endingMonth);
+    buildMatrixSystem(startingMonth, endingMonth);
 
     diagojnaliseMatrixSystem();
+
+    return;
+}
+
+void buildRegressionMoidel(){
+    int startingMonth = getStartMonth();
+    int endingMonth = getEndMonth();
+
+    calculateRegressionCoefficients(startingMonth, endingMonth);
 
     printFinalEquation();
 

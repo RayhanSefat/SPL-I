@@ -39,6 +39,12 @@ void printAnnualEarningAndSaving(float totalIncomeOfTheYear, float totalSavingsO
     return;
 }
 
+float getMonthwiseSaving(int monthIdx){
+    float savings = monthwiseEarning[monthIdx] - (monthwiseNeedSpending[monthIdx] + monthwiseDemandSpending[monthIdx]);
+
+    return savings;
+}
+
 void printMonthwiseDetails(){
     cout << "Monthwise details have been shown bellow:" << endl << endl;
 
@@ -46,7 +52,7 @@ void printMonthwiseDetails(){
     float totalSavingsOfTheYear = 0.0;
 
     for(int i=0; i<12; i++){
-        float savingsOfTheMonth = monthwiseEarning[i] - (monthwiseNeedSpending[i] + monthwiseDemandSpending[i]);
+        float savingsOfTheMonth = getMonthwiseSaving(i);
 
         cout << "Month: " << monthName[i] << endl;
         cout << "Earning: " << monthwiseEarning[i] << endl;

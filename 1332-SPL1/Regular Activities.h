@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "Regression.h";
+#include "Data Analysis.h";
 
 using namespace std;
 
@@ -54,7 +54,8 @@ void activities(){
         cout << "\t2. Transfer balance" << endl;
         cout << "\t3. Spend Money" << endl;
         cout << "\t4. Show monthwised activity analysis" << endl;
-        cout << "\t5. Show regression analysis" << endl;
+        cout << "\t5. Show summary data" << endl;
+        cout << "\t6. Show regression analysis" << endl;
 
         cout << "Your response: ";
         int operationType;
@@ -64,7 +65,8 @@ void activities(){
         else if(operationType == 2) transferBalance();
         else if(operationType == 3) spendMoney();
         else if(operationType == 4) printMonthwiseDetails();
-        else if(operationType == 5) buildRegressionMoidel();
+        else if(operationType == 5) printFinanceSummary();
+        else if(operationType == 6) buildRegressionMoidel();
 
         updateTheBalanceInformationSheet();
         updateSpendings();
