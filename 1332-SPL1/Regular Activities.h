@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "Data Analysis.h";
+#include "Taxation.h";
 
 using namespace std;
 
@@ -56,6 +56,7 @@ void activities(){
         cout << "\t4. Show monthwised activity analysis" << endl;
         cout << "\t5. Show summary data" << endl;
         cout << "\t6. Show regression analysis" << endl;
+        cout << "\t7. Calculate tax amount of the year" << endl;
 
         cout << "Your response: ";
         int operationType;
@@ -67,6 +68,7 @@ void activities(){
         else if(operationType == 4) printMonthwiseDetails();
         else if(operationType == 5) printFinanceSummary();
         else if(operationType == 6) buildRegressionMoidel();
+        else if(operationType == 7) calculateTax();
 
         updateTheBalanceInformationSheet();
         updateSpendings();
