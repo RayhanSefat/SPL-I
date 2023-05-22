@@ -122,7 +122,16 @@ void printFinalEquation(){
     return;
 }
 
+bool checkPeriodValidy(int startingMonth, int endingMonth){
+    return (startingMonth <= endingMonth);
+}
+
 void calculateRegressionCoefficients(int startingMonth, int endingMonth){
+    if(checkBalanceIsEnough(startingMonth, endingMonth)){
+        cout << "You requested for a invalid time span" << endl;
+        return;
+    }
+
     setVariableValues();
 
     buildMatrixSystem(startingMonth, endingMonth);

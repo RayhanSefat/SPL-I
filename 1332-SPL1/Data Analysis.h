@@ -121,16 +121,26 @@ void printFinanceSummary(){
     int startingMonth = getStartMonth();
     int endingMonth = getEndMonth();
 
+    calculateRegressionCoefficients(startingMonth, endingMonth);
+
+    if(!checkPeriodValidy(startingMonth, endingMonth)){
+        return;
+    }
+
     system("cls");
 
     cout << endl << "\t\t\tSUMMARY" << endl << endl;
-
-    calculateRegressionCoefficients(startingMonth, endingMonth);
 
     printMaxEarning(startingMonth, endingMonth);
     printMinEarning(startingMonth, endingMonth);
     printMaxSavings(startingMonth, endingMonth);
     printMinSavings(startingMonth, endingMonth);
+
+    printCashBalance();
+    printRunningAccountBalance();
+    printSavingAccountBalance();
+    printCreditCardDebit();
+    printTotalShrePrioces();
 
     savingsAnalysis(startingMonth, endingMonth);
 }
